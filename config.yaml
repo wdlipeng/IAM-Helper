@@ -1,0 +1,126 @@
+CPA:
+    rm.iam.cpa.url: 'http://example:36963'                                      #Must Change
+    iam.rm.adapter.cpa.clientid: 'cpa'                                          #Change when necessary
+    iam.rm.adapter.cpa.password: '123456'                                       #Change when necessary
+    iam.rm.adapter.cpa.truststore.type: 'jks'                                   #Do Not Change
+    iam.rm.adapter.cpa.truststore.file: '/etc/modules/certs/CPA_trust.jks'      #Do Not Change,should copy your cpa truststore file to the same as this configuration
+    iam.rm.adapter.cpa.truststore.pass: '123456'                                #Change when necessary
+    
+CPM:
+    iam.rm.adapter.cpm.key.alias: 'client'                                      #Change when necessary,shoud be the same as the certificates generated from NSM
+    iam.rm.adapter.cpm.key.pass:  '123456'                                      #Change when necessary,shoud be the same as the certificates generated from NSM
+    iam.rm.adapter.cpm.keystore.type: 'jks'                                     #Do Not Change
+    iam.rm.adapter.cpm.keystore.file: '/etc/modules/certs/cpm-rest_client.jks'  #Change when necessary,should copy your keystore file to the same as this configuration
+    iam.rm.adapter.cpm.keystore.pass: '123456'                                  #Change when necessary,shoud be the same as the certificates generated from NSM   
+    iam.rm.adapter.cpm.truststore.type: 'jks'                                   #Do Not Change
+    iam.rm.adapter.cpm.truststore.file: '/etc/modules/certs/trust.jks'          #Do Not Change,copy your truststore file to the same as this configuration
+    iam.rm.adapter.cpm.truststore.pass: '123456'                                #Change when necessary,shoud be the same as the certificates generated from NSM
+
+UMS:
+    iam.rm.adapter.ums.key.alias: 'client'                                      #Change when necessary,shoud be the same as the certificates generated from NSM
+    iam.rm.adapter.ums.key.pass:  '123456'                                      #Change when necessary,shoud be the same as the certificates generated from NSM
+    iam.rm.adapter.ums.keystore.type: 'jks'                                     #Do Not Change
+    iam.rm.adapter.ums.keystore.file: '/etc/modules/certs/ums-rest_client.jks'  #Change when necessary,should copy your keystore file to the same as this configuration
+    iam.rm.adapter.ums.keystore.pass: '123456'                                  #Change when necessary,shoud be the same as the certificates generated from NSM
+    iam.rm.adapter.ums.truststore.type: 'jks'                                   #Do Not Change
+    iam.rm.adapter.ums.truststore.file: '/etc/modules/certs/trust.jks'          #Change when necessary,should copy your truststore file to the same as this configuration
+    iam.rm.adapter.ums.truststore.pass: '123456'                                #Change when necessary,shoud be the same as the certificates generated from NSM
+
+JWT:
+    oauth.jwt.keyStoreType: 'jks'                                               #Do Not Change
+    oauth.jwt.keyStoreFilePath: '/etc/modules/certs/iamJwksEP.jks'              #Do Not Change,copy your keystore file to the same as this configuration  
+    oauth.jwt.storePass: '123456'                                               #Change when necessary
+    oauth.jwt.keyalias: 'RSA_2048_1'                                            #Change when necessary
+    oauth.jwt.keyPass: '123456'                                                 #Change when necessary
+    keyalg: 'RSA'                                                               #Change when necessary,information to create the RSA key pair and  keystore file
+    keysize: '2048'                                                             #Change when necessary,information to create the RSA key pair and  keystore file
+    validity: '60'                                                              #Change when necessary
+    dname: 'CN=IAM, OU=IAM, O=Ericsson, C=CN'                                  #Change when necessary,information create the RSA key pair and  keystore file
+
+idRepoConnector:
+    iam.rm.adapter.idRepoConnector.truststore.file: '/etc/modules/certs/AD_trust.jks'      #Do Not Change,should copy your trust file to the same as this configuration  
+    iam.rm.adapter.idRepoConnector.truststore.type: 'jks'                                  #Do Not Change
+    iam.rm.adapter.idRepoConnector.truststore.pass: '123456'                               #Change when necessary
+    
+AMRAndACR:
+    iam.supported.amr: '{"anon":{"2nd_factor":false, "ttl_second":3600}, "password":{"2nd_factor":false, "ttl_second":3600}, "bio_fingerprint":{"2nd_factor":true, "ttl_second":1800}, "social_sign_on":{"2nd_factor":false, "ttl_second":3600}, "security_question":{"2nd_factor":true, "ttl_second":3600}, "federation":{"2nd_factor":false, "ttl_second":3600}, "otp":{"2nd_factor":false, "ttl_second":3600}}'  #Do Not Change
+    iam.acr.amr.mapping: '{"loa1":[["anon"]], "loa2":[["password", "social_sign_on", "bio_fingerprint", "otp"]], "loa3":[["password", "social_sign_on", "bio_fingerprint"], ["security_question", "bio_fingerprint"]]}'                                                                                               #Do Not Change
+    iam.default.acr: 'loa2'                                                                                                                                                                                                                                                                                    #Do Not Change
+
+OIDCProviderConfiguration :
+    oauth.server.public.url: 'https://traffic_vip:27023/oauth2-api'                       #Must Change
+    iam.session.management.enabled: 'true'                                                #Change when necessary
+
+CaptchaConfiguration:
+    iam.captcha.sitekey:    'sitekey'                                                     #Must Change
+    iam.captcha.secretkey:  'secretkey'                                                   #Must Change
+    iam.captcha.siteverify.api.url: 'https://www.google.com/recaptcha/api/siteverify'     #Do Not Change
+    iam.authn.showcaptcha.threshold:  '2'                                                 #Change when necessary
+            
+Other:
+    iam.email.min.age.second : '0'                                                         #Do Not Change
+    iam.securityquestion.userset.min.number: '0'                                           #Do Not Change
+    iam.supported.language: 'en_US,es_US,en-US'                                            #Change when necessary
+    iam.rm.anonymous.defaultRoleName: 'SC-ANONYMOUS'                                       #Do Not Change 
+                                              
+IAMAsSystemUser:
+    iam.rm.systemuser.headerName.application: 'ERICSSON.Application-Name'                                               #Do Not Change
+    iam.rm.systemuser.headerName.role: 'ERICSSON.Role-Name'                                                             #Do Not Change
+    iam.rm.adapter.oauth.customize.header: '{"ERICSSON.Application-Name":"CPM","ERICSSON.Role-Name":"CPM_SYSTEM_IAM"}'  #Do Not Change
+    
+FEApplication:                                                                            #default FE APPs,can add more  
+    - 
+     appName: CSRTOOLBOX                                                                  #Change when necessary
+     password: 'password'                                                                 #Change when necessary
+     RedirectUris : 'https://www.example.com/'                                            #Must Change,ask FE SI
+     PostLogoutRedirectUris: 'https://www.example.com/'                                   #Must Change,ask FE SI
+    - 
+     appName: ocb2c                                                                       #Change when necessary
+     password: 'password'                                                                 #Change when necessary
+     RedirectUris : 'https://www.example.com/'                                            #Must Change,ask FE SI
+     PostLogoutRedirectUris: 'https://www.example.com/'                                   #Must Change,ask FE SI
+    - 
+     appName: ocpos                                                                       #Change when necessary
+     password: 'password'                                                                 #Change when necessary
+     RedirectUris : 'https://www.example.com/'                                            #Must Change,ask FE SI
+     PostLogoutRedirectUris: 'https://www.example.com/'                                   #Must Change,ask FE SI
+     
+SYSTEMUSERApplication:                                                                    #Change when necessary,below are default SystemUser APPs,can add more
+    - 
+     appName: karaf_MSG.iam-rest.client
+    - 
+     appName: karaf_MSV-ADM.iam-rest.client
+    - 
+     appName: karaf_COBA.iam-rest.client
+    - 
+     appName: karaf_CUS.iam-rest.client
+    - 
+     appName: karaf_CPM.iam-rest.client
+    - 
+     appName: karaf_RMCA.iam-rest.client
+    - 
+     appName: karaf_CPI.iam-rest.client
+    - 
+     appName: karaf_NUM.iam-rest.client
+    - 
+     appName: karaf_ERMS.iam-rest.client
+    - 
+     appName: karaf_CHAACCESS.iam-rest.client
+    - 
+     appName: karaf_CHACORE.iam-rest.client
+    - 
+     appName: karaf_CM.iam-rest.client
+    - 
+     appName: jboss_OM.iam-rest.client                                                               
+     
+CLUSTERINFO:
+    provision_endpoint: 127.0.0.1:26100                                                   #Must Change
+
+
+    
+
+
+    
+
+
+ 
