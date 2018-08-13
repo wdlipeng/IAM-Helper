@@ -7,8 +7,7 @@ import argparse
 
 
 def get_args():
-    description="Log Collector is a tool that helps to collect logs of all IAM DPs in defined time range on all IAM nodes. It also help packed the log into a compressed file and 1st line support engineer can easily sent the file to 2nd line support for analyze when needed.\r\n" \
-                "Example of the command: python log-collector.py -t 10 -u admin -p adminpass"
+    description='''Log Collector is a tool that helps to collect logs of all IAM DPs in defined time range on all IAM nodes. It also generates a summary log that includes all ERROR information sorted by time, so that you can easily understand which DP on which node throw ERROR message first. Besides, it helps packed the log into a compressed file and 1st line support engineer can easily sent the file to 2nd line support for analyze when needed. '''
     parser = argparse.ArgumentParser(description = description)
     help = '''Defines the interval in minutes for log collection.
     This is a mandatory parameter.
