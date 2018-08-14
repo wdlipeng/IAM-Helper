@@ -42,7 +42,7 @@ def collectNodesLogs():
 
 def packAllInfo():
     print "#"*100
-    print "start packing the logs files";time.sleep(1)
+    print "start packing the logs files";
     cmd_sort_summ="sudo sort "+currentLogPath+r"/summary.log -o "+currentLogPath+r"/summary.log;"
     local_cmd(cmd_sort_summ)
     cmdPackLogs = "sudo tar -czf "+currentLogPath+r".tar.gz"+" "+currentLogPath+r"/* &>/dev/null 2>&1;"
